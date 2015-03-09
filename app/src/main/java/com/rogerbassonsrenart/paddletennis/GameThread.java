@@ -55,10 +55,10 @@ public class GameThread extends Thread {
         int paddleHeight = viewHeight/4;
         int paddleWidth = paddleHeight/6;
 
-        rightPaddle_ = new Paddle(paddleWidth,paddleHeight,10);
+        rightPaddle_ = new Paddle(paddleWidth,paddleHeight);
         rightPaddle_.setRight(viewWidth, viewHeight);
 
-        leftPaddle_ = new Paddle(paddleWidth,paddleHeight,10);
+        leftPaddle_ = new Paddle(paddleWidth,paddleHeight);
         leftPaddle_.setLeft(viewWidth, viewHeight);
 
         b_ = new SquareBall(paddleHeight/5);
@@ -90,12 +90,13 @@ public class GameThread extends Thread {
         if (b_.isOutsideRightSide(viewWidth) || b_.isOutsideLeftSide()) {
             b_.center(viewWidth, viewHeight);
             b_.randomizeVerticalSpeed();
-        } else if (b_.hasCollided(rightPaddle_) || b_.hasCollided(leftPaddle_)) {
+        } else if ((b_.hasCollided(rightPaddle_) || b_.hasCollided(leftPaddle_))) {
             b_.invertHoritzontalDirection();
             b_.randomizeVerticalSpeed();
             hits_++;
-            if (hits_ == 6) {
+            if (hits_ == 50) {
                 b_.moreSpeed();
+                hits_ = 0;
             }
         }
     }

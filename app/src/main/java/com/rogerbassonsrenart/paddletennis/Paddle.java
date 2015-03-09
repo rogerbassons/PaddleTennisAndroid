@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.util.Log;
 
 /**
  * Created by roger on 07/03/15.
@@ -15,13 +16,13 @@ public class Paddle {
     Rect r_;
     Paint p_;
 
-    Paddle(int width, int height, int speed) {
+    Paddle(int width, int height) {
         r_ = new Rect(0,0,width,height);
         p_ = new Paint();
         p_.setStyle(Paint.Style.FILL);
         p_.setColor(Color.WHITE);
         movement_ = 0;
-        speed_ = speed;
+        speed_ = 12;
     }
 
     public float getYCenter() {
