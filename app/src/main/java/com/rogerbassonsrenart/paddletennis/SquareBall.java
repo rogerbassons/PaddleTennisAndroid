@@ -12,10 +12,10 @@ import java.util.Random;
  * Created by roger on 07/03/15.
  */
 public class SquareBall {
-    Rect r_;
-    Paint p_;
-    int dx_;
-    int dy_;
+    private Rect r_;
+    private Paint p_;
+    private int dx_;
+    private int dy_;
 
 
     SquareBall(int size) {
@@ -62,16 +62,9 @@ public class SquareBall {
     }
 
     public void randomizeVerticalSpeed() {
-        int min = 0;
-        int max = 5;
         Random r = new Random();
-        int nextDy = r.nextInt(max - min + 1) + min;
-        max = 1;
-        int k = r.nextInt(max - min + 1) + min;
-        if (k == 0) {
-            k = -1;
-        }
-        dy_ = nextDy * k;
+        int dxDoubled = Math.abs(dx_) * 2;
+        dy_ = r.nextInt(dxDoubled*2+1) - dxDoubled;
     }
 
     public void invertHoritzontalDirection() {

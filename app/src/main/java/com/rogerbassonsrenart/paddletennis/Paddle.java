@@ -10,11 +10,11 @@ import android.util.Log;
  * Created by roger on 07/03/15.
  */
 public class Paddle {
-    int movement_; // 0 is stopped, 1 is up, 2 is down
-    int speed_;
+    private int movement_; // 0 is stopped, 1 is up, 2 is down
+    private int speed_;
 
-    Rect r_;
-    Paint p_;
+    private Rect r_;
+    private Paint p_;
 
     Paddle(int width, int height) {
         r_ = new Rect(0,0,width,height);
@@ -22,7 +22,7 @@ public class Paddle {
         p_.setStyle(Paint.Style.FILL);
         p_.setColor(Color.WHITE);
         movement_ = 0;
-        speed_ = 12;
+        speed_ = height/8;
     }
 
     public float getYCenter() {
@@ -77,10 +77,12 @@ public class Paddle {
 
     public void follow(SquareBall b) {
         float ballY = b.exactCenterY();
-        if (r_.exactCenterY() < ballY) {
-            movement_ = 2;
-        } else if (r_.exactCenterY() > ballY) {
-            movement_ = 1;
+        if (Math.abs(r_.exactCenterY() - ballY) > r_.height()/2) {
+            if (r_.exactCenterY() < ballY) {
+                movement_ = 2;
+            } else if (r_.exactCenterY() > ballY) {
+                movement_ = 1;
+            }
         }
     }
 
