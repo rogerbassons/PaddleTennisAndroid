@@ -94,7 +94,7 @@ public class GameThread extends Thread {
             outside = true;
         } else if ((b_.hasCollided(rightPaddle_) || b_.hasCollided(leftPaddle_))) {
             b_.invertHoritzontalDirection();
-            b_.randomizeVerticalSpeed();
+            b_.randomVerticalSpeed();
             hits_++;
             if (hits_ == 50) {
                 b_.moreSpeed();
@@ -103,7 +103,8 @@ public class GameThread extends Thread {
         }
         if (outside) {
             b_.center(viewWidth, viewHeight);
-            b_.randomizeVerticalSpeed();
+            b_.randomVerticalSpeed();
+            b_.randomHoritzontalDirection();
         }
     }
 

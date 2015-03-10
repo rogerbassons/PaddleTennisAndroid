@@ -61,10 +61,17 @@ public class SquareBall {
         return r_.right < 0;
     }
 
-    public void randomizeVerticalSpeed() {
+    public void randomVerticalSpeed() {
         Random r = new Random();
         int dxDoubled = Math.abs(dx_) * 2;
         dy_ = r.nextInt(dxDoubled*2+1) - dxDoubled;
+    }
+    public void randomHoritzontalDirection() {
+        Random r = new Random();
+        int direction = r.nextInt(2);
+        if (direction == 0) {
+            dx_ *= -1;
+        }
     }
 
     public void invertHoritzontalDirection() {
