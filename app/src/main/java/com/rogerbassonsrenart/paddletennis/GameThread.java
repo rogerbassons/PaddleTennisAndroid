@@ -87,9 +87,11 @@ public class GameThread extends Thread {
         rightPaddle_.move(viewHeight);
         leftPaddle_.move(viewHeight);
 
-        if (b_.isOutsideRightSide(viewWidth) || b_.isOutsideLeftSide()) {
-            b_.center(viewWidth, viewHeight);
-            b_.randomizeVerticalSpeed();
+        boolean outside = false;
+        if (b_.isOutsideRightSide(viewWidth)) {
+            outside = true;
+        } else if (b_.isOutsideLeftSide()) {
+            outside = true;
         } else if ((b_.hasCollided(rightPaddle_) || b_.hasCollided(leftPaddle_))) {
             b_.invertHoritzontalDirection();
             b_.randomizeVerticalSpeed();
@@ -99,6 +101,10 @@ public class GameThread extends Thread {
                 hits_ = 0;
             }
         }
+        if (outside) {
+            b_.center(viewWidth, viewHeight);
+            b_.randomizeVerticalSpeed();
+        }
     }
 
     private void draw(Canvas c) {
@@ -106,9 +112,12 @@ public class GameThread extends Thread {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.BLACK);
         c.drawPaint(paint);
+
         paint.setColor(Color.WHITE);
         c.drawLine(gv_.getWidth() / 2, 0,gv_.getWidth() / 2, gv_.getHeight(), paint);
+
         b_.draw(c);
+
         rightPaddle_.draw(c);
         leftPaddle_.draw(c);
     }
