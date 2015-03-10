@@ -25,9 +25,4 @@ public class MainActivity extends Activity {
         gv_.stopView();
 
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
 }
