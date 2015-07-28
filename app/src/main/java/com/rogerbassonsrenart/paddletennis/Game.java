@@ -12,14 +12,27 @@ public class Game {
     private Paddle rightPaddle_;
     private Paddle leftPaddle_;
     private int hits_;
+    private boolean initialized_;
 
     private int viewWidth_, viewHeight_;
 
-    Game(int width, int height) {
+    Game() {
         hits_ = 0;
+        b_ = null;
+        rightPaddle_ = null;
+        leftPaddle_ = null;
+        viewHeight_ = 0;
+        viewWidth_ = 0;
+        initialized_ = false;
+    }
+
+    public boolean isInitialized() {
+        return initialized_;
+    }
+
+    public void initialize(int width, int height) {
         viewWidth_ = width;
         viewHeight_ = height;
-
         int paddleHeight = viewHeight_/4;
         int paddleWidth = paddleHeight/6;
 
@@ -31,6 +44,8 @@ public class Game {
 
         b_ = new SquareBall(paddleHeight/5);
         b_.center(viewWidth_, viewHeight_);
+
+        initialized_ = true;
     }
 
     public void play(float rightPaddleTouch) {

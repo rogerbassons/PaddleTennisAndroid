@@ -10,13 +10,15 @@ import android.view.SurfaceHolder;
 
 public class MainActivity extends Activity {
 
+    Game g_;
     GameView gv_;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        gv_ = new GameView(this);
+        g_ = new Game();
+        gv_ = new GameView(this, g_);
         setContentView(gv_);
     }
     @Override
@@ -24,5 +26,12 @@ public class MainActivity extends Activity {
         super.onPause();
         gv_.stopView();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onPause();
+        gv_ = new GameView(this, g_);
+        setContentView(gv_);
     }
 }

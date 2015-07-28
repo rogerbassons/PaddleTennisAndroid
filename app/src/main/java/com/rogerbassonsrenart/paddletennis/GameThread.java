@@ -23,11 +23,11 @@ public class GameThread extends Thread {
         run_ = running;
     }
 
-    public GameThread(SurfaceHolder surfaceHolder, GameView gameView) {
+    public GameThread(SurfaceHolder surfaceHolder, GameView gameView, Game g) {
         super();
         sh_ = surfaceHolder;
         gv_ = gameView;
-        g_ = new Game(gv_.getWidth(), gv_.getHeight());
+        g_ = g;
     }
 
     @Override

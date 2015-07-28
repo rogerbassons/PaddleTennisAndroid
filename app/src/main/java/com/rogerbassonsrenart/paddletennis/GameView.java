@@ -14,15 +14,20 @@ import android.view.View;
  */
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private GameThread gameThread_;
+    private Game g_;
 
-    GameView(Context context) {
+    GameView(Context context, Game g) {
         super(context);
         getHolder().addCallback(this);
+        g_ = g;
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        gameThread_ = new GameThread(getHolder(), this);
+        if (!g_.isInitialized()) {
+            g_.initialize(getWidth(), getHeight());
+        }
+        gameThread_ = new GameThread(getHolder(), this, g_);
         gameThread_.setRunning(true);
         gameThread_.start();
     }
