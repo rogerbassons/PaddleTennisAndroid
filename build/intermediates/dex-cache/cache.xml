@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/mnt/linuxData/PaddleTennisAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jar="/mnt/linuxData/repos/PaddleTennisAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/mnt/linuxData/PaddleTennisAndroid/app/build/intermediates/pre-dexed/debug/classes-c4401c2fade0fd9cf9dd9b2fca503990267e25b5.jar" />
+        <dex dex="/mnt/linuxData/repos/PaddleTennisAndroid/app/build/intermediates/pre-dexed/release/classes-74e218480306f40284e7029d7e7bd497e79b509c.jar" />
     </item>
     <item
-        jar="/mnt/linuxData/PaddleTennisAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/mnt/linuxData/PaddleTennisAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-120608f4fe1f948e9a988a5fa51a3fb915c8f864.jar" />
-    </item>
-    <item
-        jar="/mnt/linuxData/PaddleTennisAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jar="/mnt/linuxData/repos/PaddleTennisAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/mnt/linuxData/PaddleTennisAndroid/app/build/intermediates/pre-dexed/debug/classes-0d08185c8ef61bbe5e66ed6e8a6dc3cd4256b2a2.jar" />
+        <dex dex="/mnt/linuxData/repos/PaddleTennisAndroid/app/build/intermediates/pre-dexed/release/classes-682e13f89c7a5e7f3d56a521ec14f343a18a857f.jar" />
+    </item>
+    <item
+        jar="/mnt/linuxData/repos/PaddleTennisAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/mnt/linuxData/repos/PaddleTennisAndroid/app/build/intermediates/pre-dexed/release/internal_impl-21.0.3-a7d93c8ecd5b4bcd990c55dd87e74d351d70336a.jar" />
     </item>
     <item
         jar="/mnt/linuxData/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/mnt/linuxData/PaddleTennisAndroid/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-0730c034236fac8505b57a51c26242a479bcf404.jar" />
+        <dex dex="/mnt/linuxData/repos/PaddleTennisAndroid/app/build/intermediates/pre-dexed/release/support-annotations-21.0.3-0730c034236fac8505b57a51c26242a479bcf404.jar" />
     </item>
 
 </items>
