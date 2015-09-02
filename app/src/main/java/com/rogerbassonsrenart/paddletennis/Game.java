@@ -3,6 +3,7 @@ package com.rogerbassonsrenart.paddletennis;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 
 /**
  * Created by roger on 28/07/15.
@@ -62,6 +63,9 @@ public class Game {
 
         leftPaddle_.follow(b_);
 
+        int oldBallRight = b_.getRect().right;
+        int oldBallLeft = b_.getRect().left;
+
         b_.move(viewWidth_, viewHeight_);
         rightPaddle_.move(viewHeight_);
         leftPaddle_.move(viewHeight_);
@@ -69,17 +73,38 @@ public class Game {
         boolean outside = false;
         if (b_.isOutsideRightSide(viewWidth_)) {
             outside = true;
+            // add points to AI
         } else if (b_.isOutsideLeftSide()) {
             outside = true;
-        } else if ((b_.hasCollided(rightPaddle_) || b_.hasCollided(leftPaddle_))) {
-            b_.invertHoritzontalDirection();
-            b_.randomVerticalSpeed();
-            hits_++;
-            if (hits_ == 50) {
-                b_.moreSpeed();
-                hits_ = 0;
+            // add points to player
+        } else {
+            boolean collision = false;
+            if (b_.hasCollided(rightPaddle_)) {
+                if (oldBallRight <= rightPaddle_.getRect().left) {
+                    collision = true;
+                } else {
+                    b_.invertVerticalDirection();
+                }
+            } else if (b_.hasCollided(leftPaddle_)) {
+                if (oldBallLeft >= leftPaddle_.getRect().right) {
+                    collision = true;
+                } else {
+                    b_.invertVerticalDirection();
+                }
+            }
+
+            if (collision) {
+                b_.invertHoritzontalDirection();
+                b_.randomVerticalSpeed();
+                hits_++;
+                if (hits_ == 50) {
+                    hits_ = 0;
+                } else {
+                    b_.moreSpeed();
+                }
             }
         }
+
         if (outside) {
             b_.center(viewWidth_, viewHeight_);
             b_.randomVerticalSpeed();
@@ -100,5 +125,13 @@ public class Game {
 
         rightPaddle_.draw(c);
         leftPaddle_.draw(c);
+    }
+
+    private boolean hasCollidedWithEdgeRightPaddle(Rect ball, Rect paddle) {
+        return ball.right > paddle.left;
+    }
+
+    private boolean hasCollidedWithEdgeLeftPaddle(Rect ball, Rect paddle) {
+        return ball.left < paddle.right;
     }
 }

@@ -78,9 +78,17 @@ public class SquareBall {
         dx_ *= -1;
     }
 
+    public void invertVerticalDirection() {
+        dy_ *= -1;
+    }
+
     public boolean hasCollided(Paddle p) {
         Rect r = p.getRect();
         return Rect.intersects(r, r_);
+    }
+
+    public Rect getRect() {
+        return r_;
     }
 
     public void draw(Canvas canvas) {
