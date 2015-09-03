@@ -97,10 +97,10 @@ public class Game {
                 b_.invertHoritzontalDirection();
                 b_.randomVerticalSpeed();
                 hits_++;
-                if (hits_ == 50) {
-                    hits_ = 0;
-                } else {
+                if (hits_ == 100) {
                     b_.moreSpeed();
+                } else {
+                    hits_ = 0;
                 }
             }
         }
