@@ -34,16 +34,16 @@ public class Game {
     public void initialize(int width, int height) {
         viewWidth_ = width;
         viewHeight_ = height;
-        int paddleHeight = viewHeight_/4;
-        int paddleWidth = paddleHeight/6;
+        int paddleHeight = viewHeight_ / 4;
+        int paddleWidth = paddleHeight / 6;
 
-        rightPaddle_ = new Paddle(paddleWidth,paddleHeight);
+        rightPaddle_ = new Paddle(paddleWidth, paddleHeight);
         rightPaddle_.setRight(viewWidth_, viewHeight_);
 
-        leftPaddle_ = new Paddle(paddleWidth,paddleHeight);
+        leftPaddle_ = new Paddle(paddleWidth, paddleHeight);
         leftPaddle_.setLeft(viewWidth_, viewHeight_);
 
-        b_ = new SquareBall(paddleHeight/5);
+        b_ = new SquareBall(paddleHeight / 5);
         b_.center(viewWidth_, viewHeight_);
 
         initialized_ = true;
@@ -63,14 +63,15 @@ public class Game {
 
         leftPaddle_.follow(b_);
 
-        int oldBallRight = b_.getRect().right;
         int oldBallLeft = b_.getRect().left;
+        int oldBallRight = b_.getRect().right;
 
         b_.move(viewWidth_, viewHeight_);
         rightPaddle_.move(viewHeight_);
         leftPaddle_.move(viewHeight_);
 
         boolean outside = false;
+        boolean collision = false;
         if (b_.isOutsideRightSide(viewWidth_)) {
             outside = true;
             // add points to AI
@@ -78,34 +79,34 @@ public class Game {
             outside = true;
             // add points to player
         } else {
-            boolean collision = false;
             if (b_.hasCollided(rightPaddle_)) {
-                if (oldBallRight <= rightPaddle_.getRect().left) {
-                    collision = true;
-                } else {
+                if (oldBallRight > rightPaddle_.getRect().left) {
                     b_.invertVerticalDirection();
+                    b_.move(viewWidth_, viewHeight_);
+                } else {
+                    collision = true;
                 }
             } else if (b_.hasCollided(leftPaddle_)) {
-                if (oldBallLeft >= leftPaddle_.getRect().right) {
-                    collision = true;
-                } else {
+                if (oldBallLeft < leftPaddle_.getRect().right) {
                     b_.invertVerticalDirection();
-                }
-            }
-
-            if (collision) {
-                b_.invertHoritzontalDirection();
-                b_.randomVerticalSpeed();
-                hits_++;
-                if (hits_ == 100) {
-                    b_.moreSpeed();
+                    b_.move(viewWidth_, viewHeight_);
                 } else {
-                    hits_ = 0;
+                    collision = true;
                 }
             }
         }
 
-        if (outside) {
+        if (collision) {
+            b_.invertHoritzontalDirection();
+            b_.randomVerticalSpeed();
+            hits_++;
+            if (hits_ == 100) {
+                b_.moreSpeed();
+            } else {
+                hits_ = 0;
+            }
+
+        } else if (outside) {
             b_.center(viewWidth_, viewHeight_);
             b_.randomVerticalSpeed();
             b_.randomHoritzontalDirection();
