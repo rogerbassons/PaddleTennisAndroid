@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.view.SurfaceHolder;
 
 
-public class MainActivity extends Activity {
+public class GameActivity extends Activity {
 
     Game g_;
     GameView gv_;
