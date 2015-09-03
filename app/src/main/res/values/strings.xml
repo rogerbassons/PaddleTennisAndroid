@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PaddleTennis</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="game_title">PaddleTennis</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu">PaddleTennis</string>
 </resources>
