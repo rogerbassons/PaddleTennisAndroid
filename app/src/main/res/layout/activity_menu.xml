@@ -11,13 +11,35 @@
         android:gravity="center_horizontal"
         android:textSize="@dimen/abc_text_size_title_material" />
 
-    <Button
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play"
-        android:id="@+id/start_game"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="startGame" />
+        android:layout_centerHorizontal="true" >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/start_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/play_button"
+                android:onClick="startGame" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_button"
+                android:onClick="about" />
+        </TableRow>
+    </TableLayout>
 
 </RelativeLayout>

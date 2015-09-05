@@ -8,8 +8,8 @@ android {
         applicationId "com.rogerbassonsrenart.paddletennis"
         minSdkVersion 8
         targetSdkVersion 21
-        versionCode 8
-        versionName "1.4.2"
+        versionCode 9
+        versionName "1.5"
     }
     buildTypes {
         release {
