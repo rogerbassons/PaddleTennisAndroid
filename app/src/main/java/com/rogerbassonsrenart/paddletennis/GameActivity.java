@@ -44,17 +44,10 @@ public class GameActivity extends Activity {
     }
 
     private void setFullscreen() {
-        if (Build.VERSION.SDK_INT < 16) {
+        if (Build.VERSION.SDK_INT < 19) {
 
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        } else if (Build.VERSION.SDK_INT < 19) {
-
-            getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-
 
         } else {
             getWindow().getDecorView().setSystemUiVisibility(
