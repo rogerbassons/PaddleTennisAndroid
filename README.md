@@ -6,3 +6,5 @@ Features:
 - Basic gameplay
 - Touch to move the right paddle
 - Bugs
+
+[Latest apk build](app/app-release.apk)
