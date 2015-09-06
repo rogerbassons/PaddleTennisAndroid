@@ -7,15 +7,17 @@
     tools:context="com.rogerbassonsrenart.paddletennis.MenuActivity">
 
     <TextView android:text="@string/game_title" android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textSize="@dimen/abc_text_size_title_material" />
+        android:textSize="@dimen/abc_text_size_title_material"
+        android:id="@+id/textView4" />
 
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" >
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tableLayout">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -41,5 +43,13 @@
                 android:onClick="about" />
         </TableRow>
     </TableLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@mipmap/ic_launcher"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
