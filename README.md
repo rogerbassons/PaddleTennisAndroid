@@ -2,7 +2,7 @@
 
 PaddleTennis is a pong clone (tennis-like) game.
 
-[Latest apk build](app/build/outputs/apk/release/app-release-unsigned.apk)
+[Latest apk build](app/build/outputs/apk/debug/app-debug.apk)
 
 Features:
 - Basic gameplay
