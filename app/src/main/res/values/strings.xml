@@ -10,7 +10,7 @@
 
     <string name="about_author">Created by Roger Bassons </string>
     <string name="twitter_author"><a href="https://twitter.com/rogerbassons">@rogerbassons</a></string>
-    <string name="source_code"><a href="https://gitlab.com/rogerbassons/PaddleTennisAndroid">https://gitlab.com/rogerbassons/PaddleTennisAndroid</a></string>
+    <string name="source_code"><a href="https://github.com/rogerbassons/PaddleTennisAndroid">https://github.com/rogerbassons/PaddleTennisAndroid</a></string>
     <string name="version"> </string>
     <string name="about_source"> Source: </string>
     <string name="about_version"> Version: </string>

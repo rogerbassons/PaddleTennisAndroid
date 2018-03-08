@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.rogerbassonsrenart.paddletennis"
-        minSdkVersion 8
-        targetSdkVersion 21
-        versionCode 12
-        versionName "1.5.4"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 13
+        versionName "1.5.5"
     }
     buildTypes {
         release {
@@ -20,6 +20,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:21.0.3'
 }

@@ -23,13 +23,13 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
+        android:id="@+id/sourceCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/source_code"
-        android:id="@+id/sourceCode"
-        android:gravity="center_horizontal"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/source_code" />
 
     <TextView
         android:layout_width="fill_parent"
